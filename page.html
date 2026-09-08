@@ -6,7 +6,25 @@
     <link rel="stylesheet" href="sheet.css">
 </head>
 <body>
-
+<button id="add">+</button>
+<div id="new-expense">
+    <div>
+        <label for="name">Name:
+            <input type="text" id="name">
+        </label>
+        <label for="category"></label> <select id="category">
+        <option value="Category" selected hidden>Category</option>
+        <option value="Food">Food</option>
+        <option value="Utility">Utility</option>
+        <option value="Misc">Misc</option>
+    </select>
+    </div>
+    <label for="amount">Amount:
+        <input type="number" id="amount">
+        <label>$</label>
+    </label>
+    <button id="register">Add expense</button>
+</div>
 </body>
 <script src="app.js"></script>
 </html>

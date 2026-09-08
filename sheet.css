@@ -1,0 +1,59 @@
+body {
+    font-size: 18px;
+    font-family: monospace;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#add {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background-color: transparent;
+    font-size: 1.2em;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border: black 2px solid;
+}
+
+#new-expense {
+    display: none;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: black 2px solid;
+    height: 200px;
+    border-radius: 20px;
+}
+#name {
+    width: 200px;
+}
+#category {
+    width: 100px;
+}
+#amount {
+    width: 150px;
+    margin-top: 8px;
+}
+
+#register {
+    position: relative;
+    background-color: transparent;
+    border: black 3px solid;
+    border-radius: 10px;
+    width: 150px;
+    height: 35px;
+    font-size: 0.8em;
+    bottom: -40px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
