@@ -8,6 +8,26 @@ body {
     height: 100vh;
 }
 
+#expenses-tab {
+    width: 60%;
+    height: 80%;
+    background-color: antiquewhite;
+    border: black 2px solid;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+.table-spacer {
+    height: 10px;
+}
+td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
 #add {
     position: absolute;
     left: 10px;
@@ -29,6 +49,8 @@ body {
     border: black 2px solid;
     height: 200px;
     border-radius: 20px;
+    position: absolute;
+    background-color: white;
 }
 #name {
     width: 200px;

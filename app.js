@@ -1,6 +1,7 @@
 let expenses = [];
 
 let new_expense_tab = document.getElementById('new-expense');
+let expenses_tab = document.getElementById('expenses-tab');
 let name = document.getElementById('name');
 let category = document.getElementById('category');
 let amount = document.getElementById('amount');
@@ -40,7 +41,21 @@ function register() {
     }
     expenses.push(expense);
 
+    createRow(expense);
+
     toggleExpenseTab(false);
+}
+
+function createRow(expense) {
+    let expenses_tab_body = document.getElementById('expenses-tab-body');
+    expenses_tab_body.innerHTML +=
+        "        <tr>" +
+        `            <td>${expense.name}</td>` +
+        `            <td>${expense.category}</td>` +
+        `            <td>${expense.amount}</td>` +
+        "        </tr>";
+
+
 }
 
 function toggleExpenseTab(show) {
