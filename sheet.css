@@ -13,6 +13,7 @@ body {
     height: 80%;
     background-color: antiquewhite;
     border: black 2px solid;
+    overflow-y: scroll;
 }
 table {
     width: 100%;
@@ -27,6 +28,13 @@ td {
     text-overflow: ellipsis;
     text-align: center;
 }
+td:last-child {
+    position: relative;
+    padding-right: 40px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 
 #add {
     position: absolute;
@@ -40,7 +48,8 @@ td {
     border: black 2px solid;
 }
 
-#new-expense {
+#new-expense, #edit-expense {
+    z-index: 10;
     display: none;
     width: 50%;
     justify-content: center;
@@ -51,19 +60,32 @@ td {
     border-radius: 20px;
     position: absolute;
     background-color: white;
+
 }
-#name {
+.expense-menu {
+    position: absolute;
+    right: 5px;
+    background-color: transparent;
+    border: none;
+    font-size: 1.1em;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 10px;
+    outline: none;
+}
+.name {
     width: 200px;
 }
-#category {
+.category {
     width: 100px;
 }
-#amount {
+.amount {
     width: 150px;
     margin-top: 8px;
 }
 
-#register {
+#registerNew, #register {
     position: relative;
     background-color: transparent;
     border: black 3px solid;

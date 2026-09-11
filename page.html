@@ -9,22 +9,41 @@
 <button id="add">+</button>
 <div id="new-expense">
     <div>
-        <label for="name">Name:
-            <input type="text" id="name">
+        <label>Name:
+            <input type="text" class="name" id="nameNew">
         </label>
-        <label for="category"></label> <select id="category">
+        <select class="category" id="categoryNew">
         <option value="Category" selected hidden>Category</option>
         <option value="Food">Food</option>
         <option value="Utility">Utility</option>
         <option value="Misc">Misc</option>
     </select>
     </div>
-    <label for="amount">Amount:
-        <input type="number" id="amount">
+    <label>Amount:
+        <input type="number" class="amount" id="amountNew">
         <label>$</label>
     </label>
-    <button id="register">Add expense</button>
+    <button id="registerNew">Save expense</button>
 </div>
+<div id="edit-expense">
+    <div>
+        <label>Name:
+            <input type="text" class="name" id="name">
+        </label>
+        <select class="category" id="category">
+        <option value="" selected hidden>Category</option>
+        <option value="Food">Food</option>
+        <option value="Utility">Utility</option>
+        <option value="Misc">Misc</option>
+    </select>
+    </div>
+    <label>Amount:
+        <input type="number" class="amount" id="amount">
+        <label>$</label>
+    </label>
+    <button id="register">Save expense</button>
+</div>
+
 <div id="expenses-tab">
     <table>
         <thead style="border-bottom: black 2px solid;">
