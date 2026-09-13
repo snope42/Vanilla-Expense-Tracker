@@ -6,6 +6,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    flex-direction: column;
 }
 
 #expenses-tab {
@@ -46,6 +47,19 @@ td:last-child {
     height: 50px;
     border-radius: 100%;
     border: black 2px solid;
+}
+
+#filter {
+    position: relative;
+    border: black 2px dotted;
+    border-radius: 5px;
+    font-size: 0.9em;
+    width: 75px;
+}
+#filter-div {
+    position: relative;
+    margin-bottom: 5px;
+    left: -20%;
 }
 
 #new-expense, #edit-expense {

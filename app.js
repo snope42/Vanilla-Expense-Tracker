@@ -17,6 +17,8 @@ let register_button = document.getElementById('registerNew');
 register_button.addEventListener('click', registerNew);
 let edit_register_button = document.getElementById('register');
 edit_register_button.addEventListener('click', register);
+let filter = document.getElementById(`filter`);
+filter.addEventListener('change', event => refresh(event.target.value));
 
 document.addEventListener('click', event => {
     let isAddButton = add_button.contains(event.target);
@@ -46,7 +48,9 @@ function registerNew() {
     }
     expenses.push(expense);
 
-    createExpense(expense);
+    if (filter.value === 'none' || expense.category === filter.value) {
+        createExpense(expense);
+    }
     toggleNewExpenseTab(false);
 }
 
@@ -73,7 +77,7 @@ function register() {
         i++;
     });
 
-    refresh();
+    refresh(filter.value);
     toggleExpenseEditTab(false);
 }
 
@@ -83,14 +87,17 @@ function valid(name, category, amount) {
         amount !== '';
 }
 
-function refresh() {
+function refresh(filter) {
     expenses_tab_body.innerHTML = '';
+
     for (let expense of expenses) {
+        if (filter !== 'none' && expense.category !== filter) continue;
         createExpense(expense);
     }
 }
 function createRow(expense) {
-    expenses_tab_body.insertAdjacentHTML('beforeend',
+    expenses_tab_body.insertAdjacentHTML(
+        'beforeend',
         `<tr>
             <td>${expense.name}</td>
             <td>${expense.category}</td>
@@ -106,8 +113,10 @@ function createRow(expense) {
 }
 function addExpenseEventListener(expense) {
     let expense_menu = document.getElementById(`menu-${expense.id}`);
+
     expense_menu.addEventListener('change', event => {
         let option = event.target.value;
+
         if (option === 'Edit') {
             toggleExpenseEditTab(true, expense);
         } else if (option === 'Delete') {
@@ -132,7 +141,7 @@ function deleteExpense(expense) {
         i++;
     });
 
-    refresh();
+    refresh(filter.value);
 }
 
 function toggleNewExpenseTab(show) {
