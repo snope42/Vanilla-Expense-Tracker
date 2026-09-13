@@ -1,4 +1,5 @@
-let expenses = [];
+const expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+localStorage.setItem("expenses", JSON.stringify(expenses));
 
 let new_expense_tab = document.getElementById('new-expense');
 let expense_edit_tab = document.getElementById('edit-expense');
@@ -34,6 +35,9 @@ document.addEventListener('click', event => {
     if (isOutsideExpenseEditTab && !isExpenseEditTabHidden) toggleExpenseEditTab(false);
 });
 
+refresh('none');
+updateTotal();
+
 function registerNew() {
     if (!valid(name.value, category.value, amount.value)) {
         console.log('Every field must be filled');
@@ -47,10 +51,13 @@ function registerNew() {
         amount: amount.value
     }
     expenses.push(expense);
+    localStorage.setItem("expenses", JSON.stringify(expenses));
 
     if (filter.value === 'none' || expense.category === filter.value) {
         createExpense(expense);
     }
+    localStorage.setItem("expenses", JSON.stringify(expenses));
+
     updateTotal();
     toggleNewExpenseTab(false);
 }
@@ -77,6 +84,8 @@ function register() {
         }
         i++;
     });
+
+    localStorage.setItem("expenses", JSON.stringify(expenses));
 
     refresh(filter.value);
     updateTotal();
@@ -153,6 +162,8 @@ function deleteExpense(expense) {
         }
         i++;
     });
+
+    localStorage.setItem("expenses", JSON.stringify(expenses));
 
     refresh(filter.value);
     updateTotal();
