@@ -62,6 +62,12 @@ td:last-child {
     left: -20%;
 }
 
+#total-div {
+    position: relative;
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
 #new-expense, #edit-expense {
     z-index: 10;
     display: none;

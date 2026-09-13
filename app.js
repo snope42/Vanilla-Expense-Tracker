@@ -51,6 +51,7 @@ function registerNew() {
     if (filter.value === 'none' || expense.category === filter.value) {
         createExpense(expense);
     }
+    updateTotal();
     toggleNewExpenseTab(false);
 }
 
@@ -78,6 +79,7 @@ function register() {
     });
 
     refresh(filter.value);
+    updateTotal();
     toggleExpenseEditTab(false);
 }
 
@@ -131,6 +133,17 @@ function createExpense(expense) {
     addExpenseEventListener(expense);
 }
 
+function updateTotal() {
+    let total = document.getElementById('total');
+
+    let newTotal = 0;
+    for (let expense of expenses) {
+        newTotal += Number(expense.amount);
+    }
+
+    total.innerText = String(newTotal);
+}
+
 function deleteExpense(expense) {
     let i = 0;
     expenses.forEach(exp => {
@@ -142,6 +155,7 @@ function deleteExpense(expense) {
     });
 
     refresh(filter.value);
+    updateTotal();
 }
 
 function toggleNewExpenseTab(show) {
